@@ -7,7 +7,6 @@ connections.connect(
   alias="default",
   host='localhost',
   port='19530'
-
 )
 book_id = FieldSchema(
   name="book_id",
