@@ -1,6 +1,8 @@
 import re
 import csv
 import pymorphy2
+from gensim.models import doc2vec
+
 
 class Vector:
     def __init__(self):
@@ -11,7 +13,7 @@ class Vector:
     def pos(self,word, morth=pymorphy2.MorphAnalyzer()):
         return morth.parse(word)[0].tag.POS
 
-     def parsi(self):
+    def parsi(self):
         #Создаем массив векторов описания
         with open("book_new.csv", encoding='utf-8') as r_file:
             file_reader = csv.reader(r_file, delimiter=",")
@@ -36,3 +38,10 @@ class Vector:
                         else:
                             self.book_desc_norm.append(row[elem])
                             self.book_desc.append(result)
+        def tagged_document(list_of_ListOfWords):
+            for x, ListOfWords in enumerate(list_of_ListOfWords):
+                yield doc2vec.TaggedDocument(ListOfWords, [x])
+
+
+        #вектора
+        data_train = list(tagged_document(self.book_desc))
