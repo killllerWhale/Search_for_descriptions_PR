@@ -53,7 +53,11 @@ class Vector:
         #Обучение модели Doc2Vec
         d2v_model.train(data_train, total_examples=d2v_model.corpus_count, epochs=d2v_model.epochs)
         print(d2v_model[0])
-
+        data = [
+            [i for i in range(len(d2v_model))],
+            [i for i in range(10000, 10000 + len(d2v_model))],
+            [d2v_model[_] for _ in range(len(d2v_model))],
+        ]
 
 v = Vector()
 v.parsi()
