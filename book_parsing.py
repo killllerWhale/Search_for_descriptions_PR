@@ -46,6 +46,13 @@ class Vector:
         #вектора
         data_train = list(tagged_document(self.book_desc))
         print(data_train)
+        d2v_model = doc2vec.Doc2Vec(vector_size=40, min_count=2, epochs=30)
+        #расширить словарный запас
+        d2v_model.build_vocab(data_train)
+
+        #Обучение модели Doc2Vec
+        d2v_model.train(data_train, total_examples=d2v_model.corpus_count, epochs=d2v_model.epochs)
+        print(d2v_model[0])
 
 
 v = Vector()
