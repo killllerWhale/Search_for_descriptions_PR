@@ -45,3 +45,8 @@ class Vector:
 
         #вектора
         data_train = list(tagged_document(self.book_desc))
+        print(data_train)
+
+
+v = Vector()
+v.parsi()
