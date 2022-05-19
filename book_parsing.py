@@ -55,6 +55,7 @@ class Vector:
         data = [
             [i for i in range(len(self.book_name))],
             [i for i in range(10000, 10000 + len(self.book_name))],
+            [self.book_name[i] for i in range(len(self.book_name))],
             [d2v_model[_] for _ in range(len(self.book_name))],
         ]
         return data

@@ -28,7 +28,7 @@ results = collection.search(
 
 
 print(results[0].ids)
-for i in range(len(results[0].ids)):
-    print(v.book_name[results[0].ids[i]-10000], end="\n")
+# for i in range(len(results[0].ids)):
+#     print(v.book_name[results[0].ids[i]-10000], end="\n")
 
 collection.release()
