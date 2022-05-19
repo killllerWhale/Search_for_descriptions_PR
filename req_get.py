@@ -13,8 +13,8 @@ class Requester:
     def pos(self,word, morth=pymorphy2.MorphAnalyzer()):
         return morth.parse(word)[0].tag.POS
 
-    def parsi(self):
-        words = "Студент убил старуху".lower().split()
+    def parsi(self,text):
+        words = text.lower().split()
         functors_pos = {'INTJ', 'PRCL', 'CONJ', 'PREP'}
         s = [word for word in words if self.pos(word) not in functors_pos]
         result = ""
@@ -45,6 +45,3 @@ class Requester:
 
         return d2v_model[0]
 
-
-v = Requester()
-v.parsi()

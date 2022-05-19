@@ -3,7 +3,6 @@ import sys
 import pymysql
 from PyQt5 import QtWidgets, QtCore
 from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox
-
 from mydesign import Ui_MainWindow
 from test import Vector
 
